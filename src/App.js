@@ -1,8 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import NavBar from "./components/NavBar"
 
 function App() {
-    return "MI PRIMER PROYECTO REACTJS"
+    return (
+        <>
+            <NavBar/>
+        </>
+    )
 }
 ReactDOM.render( <App/> , document.getElementById("root"))
 export default App;
