@@ -1,13 +1,13 @@
-import React from "react"
-import ReactDOM from "react-dom"
 import NavBar from "./components/NavBar"
+import ItemListContainer from "./components/ItemListContainer"
 
 function App() {
     return (
         <>
             <NavBar/>
+            <ItemListContainer greeting="E-COMMERCE"/>
         </>
     )
 }
-ReactDOM.render( <App/> , document.getElementById("root"))
+
 export default App;

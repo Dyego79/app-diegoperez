@@ -1,8 +1,9 @@
+import CartWidget from "./CartWidget"
 const NavBar = ()=>{
     return(
         <>
         <header>
-            <span className="header__logo">ddfdfdfdf</span>
+            <span className="header__logo">EGO TECH</span>
             <nav className="header__nav">
                 <li><a href="#">PROCESADORES</a></li>
                 <li><a href="#">MOTHERBOARDS</a></li>
@@ -10,6 +11,7 @@ const NavBar = ()=>{
                 <li><a href="#">AURICULARES</a></li>
                 <li><a href="#">TECLADOS</a></li>
             </nav>
+        <CartWidget/>
         </header>
         </>
     )
