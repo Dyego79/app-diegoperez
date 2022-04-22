@@ -1,13 +1,13 @@
-import NavBar from "./components/NavBar"
-import ItemListContainer from "./components/ItemListContainer"
+import Header from "./components/Header";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
-    return (
-        <>
-            <NavBar/>
-            <ItemListContainer greeting="E-COMMERCE"/>
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <ItemListContainer greeting="E-COMMERCE" />
+    </>
+  );
 }
 
 export default App;
