@@ -17,11 +17,19 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         });
   };
   const restar = () => {
-    setContador(contador - 1);
+    contador <= initial
+      ? Swal.fire({
+          title: "Debes elegir al menos 1.",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        })
+      : setContador(contador - 1);
   };
-  const addCarrito = () => {
-    console.log(contador);
-  };
+
   return (
     <>
       <div className="contentBtn">
@@ -36,7 +44,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
             </span>
           </button>
         </div>
-        <button onClick={addCarrito} className="agregar buttonGral">
+        <button onClick={onAdd} className="agregar buttonGral">
           AGREGAR A CARRITO
         </button>
       </div>
