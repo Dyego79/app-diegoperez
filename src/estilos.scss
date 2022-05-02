@@ -167,7 +167,7 @@ header {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    color: $colorpincipal;
+    color: $colorsecundario;
     width: 100%;
     height: 100%;
     padding-bottom: 5px;
@@ -179,7 +179,7 @@ header {
       left: 0;
     }
     &::before {
-      background-color: $colorsecundario;
+      background-color: $colorpincipal;
       height: 3px;
       bottom: 0;
       transform-origin: 100% 50%;
@@ -247,25 +247,38 @@ header {
   }
 }
 .card > h3 {
+  z-index: 1000;
   color: $colorsecundario;
   font-weight: 800;
   font-size: 1.25rem;
+  transition: all 200ms ease;
 }
 .card {
+  overflow: hidden;
   background-color: white;
-  border: 2px solid transparent;
+  border: 8px solid rgb(248, 248, 248);
   border-radius: 0.25rem;
   box-shadow: 0 0 5px rgba(50, 50, 50, 0.2);
   display: flex;
+  text-align: left;
   padding: 1.25rem 0.75rem;
   flex-direction: column;
+  transition: all 100ms ease-in-out;
   &:hover {
     box-shadow: 0 0 5px rgba(50, 50, 50, 0.45);
-    border: 2px solid rgb(220, 220, 220);
+    border: 8px solid rgb(240, 240, 240);
+  }
+  &:hover > h3 {
+    transform-origin: left;
+    transform: translateY(1.5rem);
   }
   & > img {
+    transition: all 300ms ease-in-out;
     width: 300px;
     margin: 1.25rem 0;
+  }
+  &:hover > img {
+    transform: scale(1.25);
   }
 }
 .listProducts {
@@ -273,9 +286,13 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
+  margin: auto;
+  width: 80%;
 }
 .article__div {
+  z-index: 2;
   color: grey;
   display: flex;
   align-items: center;
@@ -300,6 +317,46 @@ header {
     background-color: $colorpincipal;
   }
 }
+.lds-ring {
+  margin: 15rem auto auto auto;
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid $colorpincipal;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: $colorpincipal transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.detalle img {
+  width: 200px;
+}
+
 @media (max-width: 1230px) {
   .header__nav {
     display: none;

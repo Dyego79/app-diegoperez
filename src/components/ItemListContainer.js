@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 const productosDB = [
   {
@@ -56,9 +57,21 @@ const ItemListContainer = ({ greeting }) => {
   const onAdd = () => {};
 
   if (cargando) {
-    return <p>cargando</p>;
+    return (
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
   } else {
-    return <ItemList productos={productos} />;
+    return (
+      <>
+        <ItemList productos={productos} />
+        <ItemDetailContainer />;
+      </>
+    );
   }
 };
 /* return (
