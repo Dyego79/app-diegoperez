@@ -1,7 +1,8 @@
+import "animate.css";
 const Item = ({ producto }) => {
   return (
     <>
-      <article className="card">
+      <article className="card animate__animated animate__fadeIn">
         <h3>{producto.nombre}</h3>
         <img src={producto.url} alt={producto.nombre} />
         <div className="article__div">

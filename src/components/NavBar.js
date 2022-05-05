@@ -13,9 +13,6 @@ const NavBar = () => {
         <NavLink to="/productos/smart-tv" className="header__nav__link">
           SMART-TVS
         </NavLink>
-        <NavLink to="/Carrito" className="header__nav__link">
-          Carrito
-        </NavLink>
       </nav>
       <CartWidget />
     </>

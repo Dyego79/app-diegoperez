@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer";
-import ItemDetailConatiner from "./ItemDetailConatiner";
+import ItemDetailContainer from "./ItemDetailContainer";
 import Carrito from "./Carrito";
 const Main = () => {
   return (
@@ -8,10 +8,8 @@ const Main = () => {
       <main>
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/productos/smartphones"
-            element={<ItemDetailConatiner />}
-          />
+          <Route path="/productos/:category" element={<ItemListContainer />} />
+          <Route path="/producto/:id" element={<ItemDetailContainer />} />
           <Route path="/Carrito" element={<Carrito />} />
           {/* <ItemListContainer greeting="E-COMMERCE" /> */}
         </Routes>
