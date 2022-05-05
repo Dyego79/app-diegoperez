@@ -1,11 +1,14 @@
 import Header from "./components/Header";
-import ItemListContainer from "./components/ItemListContainer";
+import Main from "./components/ItemListContainer";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
-      <ItemListContainer greeting="E-COMMERCE" />
+      <BrowserRouter>
+        <Header />
+        <Main />
+      </BrowserRouter>
     </>
   );
 }

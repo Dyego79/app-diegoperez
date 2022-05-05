@@ -152,21 +152,22 @@ header {
   justify-content: space-between;
   padding: 1rem 2rem;
   align-items: center;
+  background-color: white;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.5);
+}
+.header__nav__link {
+  margin: 0 2rem;
+  display: inline-block;
 }
 .header__nav {
   font-size: 1.25rem;
   font-weight: 800;
   list-style: none;
-  li {
-    margin: 0 0.5rem;
-    display: inline-block;
-    padding: 0.5rem 1.25rem 0 1.25rem;
-  }
   a {
     text-decoration: none;
     overflow: hidden;
     position: relative;
-    display: inline-block;
+    display: inline;
     color: $colorsecundario;
     width: 100%;
     height: 100%;
@@ -282,7 +283,7 @@ header {
   }
 }
 .listProducts {
-  padding: 1rem;
+  padding: 5rem 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;

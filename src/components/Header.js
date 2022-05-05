@@ -1,9 +1,12 @@
 import NavBar from "./NavBar";
+import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <>
       <header>
-        <span className="header__logo">EGO TECH</span>
+        <NavLink to="/">
+          <span className="header__logo">EGO TECH</span>
+        </NavLink>
         <NavBar />
       </header>
     </>

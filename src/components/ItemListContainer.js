@@ -58,7 +58,7 @@ const ItemListContainer = ({ greeting }) => {
 
   if (cargando) {
     return (
-      <div class="lds-ring">
+      <div className="lds-ring">
         <div></div>
         <div></div>
         <div></div>
@@ -69,7 +69,7 @@ const ItemListContainer = ({ greeting }) => {
     return (
       <>
         <ItemList productos={productos} />
-        <ItemDetailContainer />;
+        {/* <ItemDetailContainer />; */}
       </>
     );
   }
