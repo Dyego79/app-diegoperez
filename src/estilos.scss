@@ -357,7 +357,11 @@ header {
 .detalle img {
   width: 200px;
 }
-
+.detalle__titulo {
+  font-size: 2rem;
+  color: $colorsecundario;
+  font-weight: 700;
+}
 @media (max-width: 1230px) {
   .header__nav {
     display: none;

@@ -1,7 +1,6 @@
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
-import ItemDetailContainer from "./ItemDetailContainer";
 import { useParams } from "react-router-dom";
 
 const productosDB = [

@@ -1,5 +1,11 @@
+import { Link, useNavigate } from "react-router-dom";
 import "animate.css";
+
 const Item = ({ producto }) => {
+  const navDetalle = useNavigate();
+  const elegirDetalle = () => {
+    navDetalle(`/producto/${producto.id}`);
+  };
   return (
     <>
       <article className="card animate__animated animate__fadeIn">
@@ -12,7 +18,9 @@ const Item = ({ producto }) => {
             favorite
           </span>
         </div>
-        <button className="card__btn">DETALLE</button>
+        <button onClick={elegirDetalle} className="card__btn">
+          DETALLE
+        </button>
       </article>
     </>
   );
