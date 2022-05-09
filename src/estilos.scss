@@ -141,7 +141,7 @@ h2 {
   color: $colorsecundario;
 }
 .header__logo {
-  background: url("./img/logo-egotech.svg") no-repeat center center;
+  background: url("../img/logo-egotech.svg") no-repeat center center;
   display: block;
   height: 4rem;
   width: 15rem;
@@ -152,7 +152,7 @@ header {
   justify-content: space-between;
   padding: 1rem 2rem;
   align-items: center;
-  background-color: white;
+  background-color: $colorpincipal;
   box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.5);
 }
 .header__nav__link {
@@ -168,7 +168,7 @@ header {
     overflow: hidden;
     position: relative;
     display: inline;
-    color: $colorsecundario;
+    color: white;
     width: 100%;
     height: 100%;
     padding-bottom: 5px;
@@ -180,7 +180,7 @@ header {
       left: 0;
     }
     &::before {
-      background-color: $colorpincipal;
+      background-color: $colorsecundario;
       height: 3px;
       bottom: 0;
       transform-origin: 100% 50%;
@@ -194,9 +194,8 @@ header {
   }
 }
 .colorIcon {
-  color: $colorpincipal;
+  color: white;
 }
-
 .buttonGral {
   margin: 0;
   padding: 0 0.5rem;
@@ -205,11 +204,15 @@ header {
   background-color: transparent;
   &:hover > span {
     color: $colorsecundario;
+    background-color: lightblue;
+    border-radius: 50%;
+  }
+  &:disabled {
+    opacity: 0.35;
   }
 }
 .contentBtn {
-  width: 200px;
-  margin: auto;
+  margin-top: auto;
   flex-direction: column;
   justify-items: center;
 }
@@ -223,13 +226,14 @@ header {
   border-radius: 0.25rem;
 }
 .contador {
-  width: 110px;
+  width: 80%;
   font-weight: 400;
   padding: 0.75rem 0rem 0.5rem 0rem;
   color: rgb(80, 80, 80);
   //border-radius: 0.25rem;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.25rem;
+  height: 1.75rem;
 }
 .agregar {
   text-align: center;
@@ -237,7 +241,7 @@ header {
   font-weight: 900;
   border: 2px solid $colorsecundario;
   color: $colorsecundario;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem;
   margin: 0.25rem 0;
   width: 100%;
   border-radius: 0.25rem;
@@ -245,6 +249,9 @@ header {
   &:hover {
     background-color: $colorsecundario;
     color: white;
+  }
+  &:disabled {
+    opacity: 0.35;
   }
 }
 .card > h3 {
@@ -266,7 +273,7 @@ header {
   flex-direction: column;
   transition: all 100ms ease-in-out;
   &:hover {
-    box-shadow: 0 0 5px rgba(50, 50, 50, 0.45);
+    box-shadow: 0 0 15px rgba(50, 50, 50, 0.8);
     border: 8px solid rgb(240, 240, 240);
   }
   &:hover > h3 {
@@ -297,6 +304,7 @@ header {
   color: grey;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 .article__div__price {
   margin-left: 0.5rem;
@@ -354,13 +362,73 @@ header {
     transform: rotate(360deg);
   }
 }
-.detalle img {
-  width: 200px;
+main {
+  padding: 3rem 5rem;
 }
-.detalle__titulo {
+.detalle {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 70%;
+  border-radius: 0.3rem;
+  background-color: white;
+  margin: auto;
+  padding: 1rem;
+}
+.detalle__img img {
+  width: 450px;
+}
+.detalle__img {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex: 3;
+}
+.detalle__info {
+  flex: 2;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 0.2rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem 0;
+}
+.detalle__info p {
+  line-height: 1.45rem;
+}
+.detalle__info__titulo {
   font-size: 2rem;
   color: $colorsecundario;
   font-weight: 700;
+}
+.detalle__info__cat {
+  display: inline-block;
+  background-color: $colorpincipal;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.25rem 0.25rem 0.25rem;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 0.5rem 1.5rem 0;
+  font-weight: 500;
+}
+.detalle__info__catNombre {
+  font-weight: 800;
+  color: rgb(120, 120, 120);
+}
+.detalle__descrip {
+  margin-bottom: auto;
+}
+.detalle__info__price {
+  font-size: 3rem;
+  color: rgb(120, 120, 120);
+  font-weight: 300;
+}
+.detalle__info__div {
+  display: flex;
+  align-content: center;
 }
 @media (max-width: 1230px) {
   .header__nav {

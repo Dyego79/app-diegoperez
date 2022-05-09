@@ -1,8 +1,16 @@
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock, onClick }) => {
   const [contador, setContador] = useState(initial);
-  useEffect(() => {}, []);
+  const [dis, setDisabled] = useState(false);
+
+  const elegir = (e) => {
+    onClick(contador);
+    setDisabled(true);
+    setContador(0);
+  };
+
   const sumar = () => {
     contador < stock
       ? setContador(contador + 1)
@@ -34,19 +42,20 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     <>
       <div className="contentBtn">
         <div className="botones">
-          <button onClick={restar} className="buttonGral">
+          <button onClick={restar} disabled={dis} className="buttonGral">
             <span className="material-symbols-outlined">do_not_disturb_on</span>
           </button>
           <span className="contador">{contador}</span>
-          <button className="buttonGral">
-            <span onClick={sumar} className="material-symbols-outlined">
-              add_circle
-            </span>
+          <button onClick={sumar} disabled={dis} className="buttonGral">
+            <span className="material-symbols-outlined">add_circle</span>
           </button>
         </div>
-        <button onClick={onAdd} className="agregar buttonGral">
+        <button onClick={elegir} disabled={dis} className="agregar buttonGral">
           AGREGAR A CARRITO
         </button>
+        <Link to="/Cart">
+          <button className="agregar buttonGral"> TERMINAR MI COMPRA</button>
+        </Link>
       </div>
     </>
   );
