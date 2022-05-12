@@ -15,7 +15,7 @@ const ItemListContainer = ({ greeting }) => {
     const promesa = new Promise((res, rej) => {
       setTimeout(() => {
         res(productosDB);
-      }, 2000);
+      }, 500);
     });
     promesa.then((res) => {
       setCargando(false);
@@ -31,24 +31,21 @@ const ItemListContainer = ({ greeting }) => {
     });
   }, [category]);
 
-  const onAdd = () => {};
-
-  if (cargando) {
-    return (
-      <div className="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    );
-  } else {
-    return (
-      <>
-        <ItemList productos={productos} /> {/* <ItemDetailContainer />; */}
-      </>
-    );
-  }
+  return (
+    <>
+      {cargando ? (
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      ) : (
+        <ItemList productos={productos} />
+      )}
+      ;
+    </>
+  );
 };
 /* return (
     <>

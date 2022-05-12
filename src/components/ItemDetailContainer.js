@@ -1,7 +1,8 @@
 import ItemDetail from "./ItemDetail";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import productosBase from "../productos.json";
+import { contexto } from "./CartContext";
 
 const productoDetail = productosBase;
 
@@ -29,8 +30,6 @@ const ItemDetailContainer = () => {
       console.log("Algo salió mal :(");
     });
   }, [detalle]);
-
-  const onAdd = () => {};
 
   if (cargando) {
     return (

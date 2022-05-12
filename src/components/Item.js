@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useContext } from "react-router-dom";
+import { contexto } from "./CartContext";
 import "animate.css";
 
 const Item = ({ producto }) => {
   const navDetalle = useNavigate();
   const elegirDetalle = () => {
-    navDetalle(`/producto/${producto.id}`);
+    navDetalle(`/productos/${producto.id}` + `/${producto.nombre}`);
   };
   return (
     <>

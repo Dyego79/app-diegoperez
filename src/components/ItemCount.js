@@ -1,12 +1,17 @@
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-const ItemCount = ({ initial, stock, onClick }) => {
+import { useState, useContext } from "react";
+import { contexto } from "./CartContext";
+
+const ItemCount = ({ initial, stock, onAdd, detalle }) => {
   const [contador, setContador] = useState(initial);
   const [dis, setDisabled] = useState(false);
 
-  const elegir = (e) => {
-    onClick(contador);
+  const { addCant } = useContext(contexto);
+
+  const elegir = () => {
+    onAdd(contador, detalle);
+    addCant(contador, detalle);
     setDisabled(true);
     setContador(0);
   };

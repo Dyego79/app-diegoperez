@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "url": "../img/smartv.png",
+    "url": "/img/smartv.png",
     "nombre": "TV SMART LG",
     "categoria": "smart-tv",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "url": "../img/smartphone.jpg",
+    "url": "/img/smartphone.jpg",
     "nombre": "SMARTPHONE SARASA",
     "categoria": "smartphones",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "url": "../img/tablet.jpg",
+    "url": "/img/tablet.jpg",
     "nombre": "TABLET PRO",
     "categoria": "tablets",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "url": "../img/smartv.png",
+    "url": "/img/smartv.png",
     "nombre": "TV SMART LG",
     "categoria": "smart-tv",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "url": "../img/smartphone.jpg",
+    "url": "/img/smartphone.jpg",
     "nombre": "SMARTPHONE SARASA",
     "categoria": "smartphones",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "url": "../img/tablet.jpg",
+    "url": "/img/tablet.jpg",
     "nombre": "TABLET PRO",
     "categoria": "tablets",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "url": "../img/smartv.png",
+    "url": "/img/smartv.png",
     "nombre": "TV SMART LG",
     "categoria": "smart-tv",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "url": "../img/smartphone.jpg",
+    "url": "/img/smartphone.jpg",
     "nombre": "SMARTPHONE SARASA",
     "categoria": "smartphones",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "url": "../img/tablet.jpg",
+    "url": "/img/tablet.jpg",
     "nombre": "TABLET PRO",
     "categoria": "tablets",
     "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur. ",
