@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const contexto = createContext();
 const { Provider } = contexto;
@@ -18,10 +19,15 @@ const ProviderReturn = ({ children }) => {
         setproductquantity(productquantity + cantidad)
     } */
   };
-
-  const eliminarProducto = (id) => {};
+  const eliminarProducto = (id) => {
+    const elimCant = Number(id.value);
+    setproductquantity(productquantity - elimCant);
+    console.log(elimCant);
+    const carritoCopy = [...carrito];
+    const newArray = carritoCopy.filter((item) => item.id !== Number(id.id));
+    setCarrito(newArray);
+  };
   const addProductCompleto = (nombre) => {
-    console.log(nombre);
     const carritoCopy = [...carrito];
     const itemSeleccionado = carritoCopy.filter((detalle) => {
       return nombre.id == detalle.id;
@@ -30,16 +36,26 @@ const ProviderReturn = ({ children }) => {
       carritoCopy.push(nombre);
       setCarrito(carritoCopy);
     } else {
-      alert("este producto ya está");
+      Swal.fire({
+        title: "ESTE PRODUCTO YA FUE AGREGADO.",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
     }
-    console.log(carrito);
+
     //setCarrito(setCarrito.push(x));
   };
   const vaciarCarrito = () => {
     setCarrito([]);
+    setproductquantity(0);
   };
-  const eliminar = (a) => {
-    console.log(a);
+
+  const estaEnCarrito = (producto) => {
+    //return true o false
   };
 
   const contextVal = {
@@ -47,11 +63,11 @@ const ProviderReturn = ({ children }) => {
     productName,
     carrito,
     productPrice,
-    eliminar,
     addProductCompleto,
     addCant,
     eliminarProducto,
     vaciarCarrito,
+    estaEnCarrito,
   };
 
   return <Provider value={contextVal}>{children}</Provider>;

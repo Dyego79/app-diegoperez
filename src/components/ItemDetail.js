@@ -10,9 +10,9 @@ const ItemDetail = ({ detalle }) => {
   const onAdd = (cant) => {
     setcontadorRecibido(cant);
     addProductCompleto({
+      id: detalle.id,
       img: detalle.url,
       cant: cant,
-      id: detalle.id,
       nom: detalle.nombre,
       precio: detalle.precio,
     });

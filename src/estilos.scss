@@ -453,9 +453,8 @@ main {
   align-content: center;
 }
 .main__cart__row {
-  padding: 1rem;
-  margin: 0.5rem;
-  border-radius: 0.25rem;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -466,6 +465,7 @@ main {
   text-align: left;
   margin: auto;
   width: 70%;
+  height: 800px;
   font-size: 1.25rem;
   border-radius: 0.25rem;
   background-color: white;
@@ -474,19 +474,22 @@ main {
   text-align: left;
   font-weight: 300;
 }
-.main__cart__titulo {
-  font-size: 1.25rem;
+.botonElimCarrito {
+  margin-top: 5rem;
 }
 .main__cart__titulo {
   font-size: 1rem;
 }
 .main__cart__row__cont:nth-child(1),
 .main__cart__titulo:nth-child(1) {
-  width: 80px;
+  width: 40px;
+  margin-right: 1rem;
+  text-align: center;
 }
 .main__cart__row__cont:nth-child(2),
 .main__cart__titulo:nth-child(2) {
-  width: 150px;
+  width: 120px;
+  text-align: center;
 }
 .main__cart__row__cont:nth-child(3),
 .main__cart__titulo:nth-child(3) {

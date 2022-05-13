@@ -10,7 +10,7 @@ const ItemCount = ({ initial, stock, onAdd, detalle }) => {
   const { addCant } = useContext(contexto);
 
   const elegir = () => {
-    onAdd(contador, detalle);
+    onAdd(contador);
     addCant(contador, detalle);
     setDisabled(true);
     setContador(0);

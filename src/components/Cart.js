@@ -2,10 +2,9 @@ import { contexto } from "./CartContext";
 import { useContext } from "react";
 const Cart = () => {
   const { productquantity } = useContext(contexto);
-  const { carrito, eliminar } = useContext(contexto);
-  console.log(carrito);
-  const quitar = () => {
-    eliminar(carrito);
+  const { carrito, eliminarProducto, vaciarCarrito } = useContext(contexto);
+  const elim = (id) => {
+    eliminarProducto(id.target);
   };
   return (
     <>
@@ -21,7 +20,7 @@ const Cart = () => {
           return (
             <div key={element.id} className="main__cart__row">
               <div className="main__cart__row__cont">{element.cant}</div>
-              <div className="main__cart__row__cont">
+              <div>
                 <img
                   src={element.img}
                   className="main__cart__row__cont__img"
@@ -30,10 +29,15 @@ const Cart = () => {
               </div>
               <div className="main__cart__row__cont">{element.nom}</div>
               <div className="main__cart__row__cont">$ {element.precio}</div>
-              <button onClick={quitar}>ELIMINAR</button>
+              <button onClick={elim} id={element.id} value={element.cant}>
+                BORRAR
+              </button>
             </div>
           );
         })}
+        <button className="botonElimCarrito" onClick={vaciarCarrito}>
+          VACIAR CARRITO
+        </button>
       </main>
     </>
   );
