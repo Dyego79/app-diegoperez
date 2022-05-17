@@ -6,14 +6,16 @@ import { contexto } from "./CartContext";
 const ItemCount = ({ initial, stock, onAdd, detalle }) => {
   const [contador, setContador] = useState(initial);
   const [dis, setDisabled] = useState(false);
+  const [compra, setCompra] = useState(false);
 
   const { addCant } = useContext(contexto);
 
   const elegir = () => {
     onAdd(contador);
-    addCant(contador, detalle);
+    addCant(contador);
     setDisabled(true);
     setContador(0);
+    setCompra(true);
   };
 
   const sumar = () => {
@@ -55,12 +57,19 @@ const ItemCount = ({ initial, stock, onAdd, detalle }) => {
             <span className="material-symbols-outlined">add_circle</span>
           </button>
         </div>
-        <button onClick={elegir} disabled={dis} className="agregar buttonGral">
-          AGREGAR A CARRITO
-        </button>
-        <Link to="/Cart">
-          <button className="agregar buttonGral"> TERMINAR MI COMPRA</button>
-        </Link>
+        {!compra ? (
+          <button
+            onClick={elegir}
+            disabled={dis}
+            className="agregar buttonGral"
+          >
+            AGREGAR A CARRITO
+          </button>
+        ) : (
+          <Link to="/Cart">
+            <button className="agregar buttonGral"> TERMINAR MI COMPRA</button>
+          </Link>
+        )}
       </div>
     </>
   );

@@ -9,15 +9,10 @@ const ProviderReturn = ({ children }) => {
   const [productquantity, setproductquantity] = useState(0);
   const [productName, setproductName] = useState(0);
   const [productPrice, setproductPrice] = useState(0);
+  const [precioTotal, setPrecioTotal] = useState(0);
 
   const addCant = (cantidad) => {
     setproductquantity(productquantity + cantidad);
-    //console.log(cantidad);
-
-    /*  if(estaEnCarrito(producto)){
-    }else{
-        setproductquantity(productquantity + cantidad)
-    } */
   };
   const eliminarProducto = (id) => {
     const elimCant = Number(id.value);
@@ -27,7 +22,7 @@ const ProviderReturn = ({ children }) => {
     const newArray = carritoCopy.filter((item) => item.id !== Number(id.id));
     setCarrito(newArray);
   };
-  const addProductCompleto = (nombre) => {
+  const addProductCompleto = (nombre, cantidad) => {
     const carritoCopy = [...carrito];
     const itemSeleccionado = carritoCopy.filter((detalle) => {
       return nombre.id == detalle.id;
@@ -63,6 +58,8 @@ const ProviderReturn = ({ children }) => {
     productName,
     carrito,
     productPrice,
+    precioTotal,
+    setPrecioTotal,
     addProductCompleto,
     addCant,
     eliminarProducto,
