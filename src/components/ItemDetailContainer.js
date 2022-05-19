@@ -3,13 +3,14 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import productosBase from "../productos.json";
 import { contexto } from "./CartContext";
+import { db } from "./database";
 
 const productoDetail = productosBase;
 
 const ItemDetailContainer = () => {
   const [cargando, setCargando] = useState(true);
   const [detalle, setdetalle] = useState([]);
-  const { id } = useParams();
+  const { id, nombre } = useParams();
 
   useEffect(() => {
     //console.log(id);

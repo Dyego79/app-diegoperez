@@ -10,19 +10,19 @@ const ProviderReturn = ({ children }) => {
   const [productName, setproductName] = useState(0);
   const [productPrice, setproductPrice] = useState(0);
   const [precioTotal, setPrecioTotal] = useState(0);
+  const [ok, setOk] = useState(false);
+  const [totalCarrito, setTotalcarrito] = useState(0);
 
-  const addCant = (cantidad) => {
-    setproductquantity(productquantity + cantidad);
-  };
   const eliminarProducto = (id) => {
-    const elimCant = Number(id.value);
+    const elimCant = parseInt(id.value);
     setproductquantity(productquantity - elimCant);
     console.log(elimCant);
     const carritoCopy = [...carrito];
     const newArray = carritoCopy.filter((item) => item.id !== Number(id.id));
     setCarrito(newArray);
   };
-  const addProductCompleto = (nombre, cantidad) => {
+
+  const addProductCompleto = (nombre) => {
     const carritoCopy = [...carrito];
     const itemSeleccionado = carritoCopy.filter((detalle) => {
       return nombre.id == detalle.id;
@@ -30,6 +30,7 @@ const ProviderReturn = ({ children }) => {
     if (!itemSeleccionado) {
       carritoCopy.push(nombre);
       setCarrito(carritoCopy);
+      setproductquantity(productquantity + nombre.cant);
     } else {
       Swal.fire({
         title: "ESTE PRODUCTO YA FUE AGREGADO.",
@@ -44,6 +45,11 @@ const ProviderReturn = ({ children }) => {
 
     //setCarrito(setCarrito.push(x));
   };
+  /*  const addCant = (cantidad) => {
+    if (setOk) {
+      setproductquantity(productquantity + cantidad);
+    }
+  }; */
   const vaciarCarrito = () => {
     setCarrito([]);
     setproductquantity(0);
@@ -61,7 +67,7 @@ const ProviderReturn = ({ children }) => {
     precioTotal,
     setPrecioTotal,
     addProductCompleto,
-    addCant,
+    //addCant,
     eliminarProducto,
     vaciarCarrito,
     estaEnCarrito,

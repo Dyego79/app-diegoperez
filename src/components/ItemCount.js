@@ -8,11 +8,11 @@ const ItemCount = ({ initial, stock, onAdd, detalle }) => {
   const [dis, setDisabled] = useState(false);
   const [compra, setCompra] = useState(false);
 
-  const { addCant } = useContext(contexto);
+  //const { addCant } = useContext(contexto);
 
   const elegir = () => {
     onAdd(contador);
-    addCant(contador);
+    //addCant(contador);
     setDisabled(true);
     setContador(0);
     setCompra(true);
