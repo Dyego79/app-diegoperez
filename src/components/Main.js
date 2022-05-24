@@ -9,10 +9,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/productos/:category" element={<ItemListContainer />} />
-          <Route
-            path="/productos/:id/:nombre"
-            element={<ItemDetailContainer />}
-          />
+          <Route path="/productos/:id" element={<ItemDetailContainer />} />
           <Route path="/Cart" element={<Cart />} />
           {/* <ItemListContainer greeting="E-COMMERCE" /> */}
         </Routes>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { contexto } from "./CartContext";
 
-const ItemCount = ({ initial, stock, onAdd, detalle }) => {
+const ItemCount = ({ initial, stock, onAdd }) => {
   const [contador, setContador] = useState(initial);
   const [dis, setDisabled] = useState(false);
   const [compra, setCompra] = useState(false);

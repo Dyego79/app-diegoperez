@@ -5,6 +5,7 @@ const ItemList = ({ productos }) => {
     <>
       <section className="listProducts">
         {productos.map((producto) => {
+          //console.log(producto);
           return <Item key={producto.id} producto={producto} />;
         })}
       </section>

@@ -5,8 +5,9 @@ import "animate.css";
 const Item = ({ producto }) => {
   const navDetalle = useNavigate();
   const elegirDetalle = () => {
-    navDetalle(`/productos/${producto.id}` + `/${producto.nombre}`);
+    navDetalle(`/productos/${producto.id}`);
   };
+
   return (
     <>
       <article className="card animate__animated animate__fadeIn">

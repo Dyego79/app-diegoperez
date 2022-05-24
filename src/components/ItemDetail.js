@@ -1,12 +1,10 @@
 import { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
-import Cart from "./Cart";
 import { contexto } from "./CartContext";
 
 const ItemDetail = ({ detalle }) => {
   const [contadorRecibido, setcontadorRecibido] = useState(1);
   const { addProductCompleto } = useContext(contexto);
-
   const onAdd = (cant) => {
     setcontadorRecibido(cant);
     addProductCompleto({
@@ -17,6 +15,7 @@ const ItemDetail = ({ detalle }) => {
       precio: detalle.precio,
     });
   };
+
   return (
     <>
       <section className="detalle">
@@ -41,7 +40,7 @@ const ItemDetail = ({ detalle }) => {
               <p>{detalle.descripcion}</p>
             </div>
           </div>
-          <ItemCount stock={10} initial={1} onAdd={onAdd} detalle={detalle} />
+          <ItemCount stock={10} initial={1} onAdd={onAdd} />
         </div>
       </section>
     </>

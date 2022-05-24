@@ -1,8 +1,6 @@
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-//import productosBase from "../productos.json";
 import { db } from "./database";
 import {
   collection,
@@ -11,9 +9,8 @@ import {
   getDocs,
   addDoc,
   query,
+  where,
 } from "firebase/firestore";
-
-//const productosDB = productosBase;
 
 const ItemListContainer = ({ greeting }) => {
   const [cargando, setCargando] = useState(true);
@@ -21,6 +18,44 @@ const ItemListContainer = ({ greeting }) => {
   const { category } = useParams();
 
   useEffect(() => {
+    const productosCollection = collection(db, "productos");
+    if (category !== undefined && category !== "") {
+      const filtrarProdcuto = query(
+        productosCollection,
+        where("categoria", "==", category)
+      );
+      const consulta = getDocs(filtrarProdcuto);
+      consulta
+        .then((resultado) => {
+          const productos = resultado.docs.map((doc) => {
+            const productoConId = doc.data();
+            productoConId.id = doc.id;
+            return productoConId;
+          });
+          setProductos(productos);
+          setCargando(false);
+        })
+        .catch((error) => {})
+        .finally(() => {});
+      setCargando(true);
+    } else {
+      const consulta = getDocs(productosCollection);
+      consulta
+        .then((resultado) => {
+          const productos = resultado.docs.map((doc) => {
+            const productoConId = doc.data();
+            productoConId.id = doc.id;
+            return productoConId;
+          });
+          setProductos(productos);
+          setCargando(false);
+        })
+        .catch((error) => {})
+        .finally(() => {});
+      setCargando(true);
+    }
+  }, [category]);
+  /*   useEffect(() => {
     const productosCollection = collection(db, "productos");
     const consulta = getDocs(productosCollection);
     if (category == undefined) {
@@ -59,25 +94,6 @@ const ItemListContainer = ({ greeting }) => {
       //const filter = productoConId.filter((cat) => cat.categoria == category);
       //setProductos(filter);
     }
-  }, [category]);
-  /* useEffect(() => {
-    const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productosDB);
-      }, 500);
-    });
-    promesa.then((res) => {
-      setCargando(false);
-      if (category == undefined) {
-        setProductos(productosDB);
-      } else {
-        setProductos(filter);
-      }
-    });
-    setCargando(true);
-    promesa.catch((error) => {
-      console.log("Algo salió mal :(");
-    });
   }, [category]); */
 
   return (
@@ -92,7 +108,6 @@ const ItemListContainer = ({ greeting }) => {
       ) : (
         <ItemList productos={productos} />
       )}
-      ;
     </>
   );
 };
