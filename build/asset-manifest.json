@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5e16c888.css",
+    "main.js": "/static/js/main.a8cdc7d0.js",
+    "static/media/logo-egotech.svg": "/static/media/logo-egotech.3f444dbe3324229ef22a.svg",
+    "index.html": "/index.html",
+    "main.5e16c888.css.map": "/static/css/main.5e16c888.css.map",
+    "main.a8cdc7d0.js.map": "/static/js/main.a8cdc7d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e16c888.css",
+    "static/js/main.a8cdc7d0.js"
+  ]
+}

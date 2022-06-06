@@ -7,70 +7,108 @@ const { Provider } = contexto;
 const ProviderReturn = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [productquantity, setproductquantity] = useState(0);
-  const [productName, setproductName] = useState(0);
-  const [productPrice, setproductPrice] = useState(0);
   const [precioTotal, setPrecioTotal] = useState(0);
-  const [ok, setOk] = useState(false);
-  const [totalCarrito, setTotalcarrito] = useState(0);
+  const [totalCarrito, setTotalcarrito] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [order, setOrder] = useState({});
 
-  const eliminarProducto = (id) => {
-    const elimCant = parseInt(id.value);
+  const eliminarProducto = (e) => {
+    const elimCant = parseInt(e.value);
     setproductquantity(productquantity - elimCant);
-    console.log(elimCant);
     const carritoCopy = [...carrito];
-    const newArray = carritoCopy.filter((item) => item.id !== Number(id.id));
+    const newArray = carritoCopy.filter((item) => item.id !== e.id);
+    const newArray2 = carritoCopy.filter((item) => item.id === e.id);
+    const restaTotal = newArray2[total].total;
     setCarrito(newArray);
+    setTotalcarrito(totalCarrito - restaTotal);
   };
-
-  const addProductCompleto = (nombre) => {
+  const agregarOrden = (orden, resultado) => {
+    setOrder(orden);
+  };
+  const addProductCompleto = (nombre, cant) => {
     const carritoCopy = [...carrito];
     const itemSeleccionado = carritoCopy.filter((detalle) => {
-      return nombre.id == detalle.id;
+      return nombre.id === detalle.id;
     })[0];
     if (!itemSeleccionado) {
+      const t = [];
       carritoCopy.push(nombre);
-      setCarrito(carritoCopy);
-      setproductquantity(productquantity + nombre.cant);
-    } else {
-      Swal.fire({
-        title: "ESTE PRODUCTO YA FUE AGREGADO.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+      const totalparacarrito = carritoCopy.map((precio) => {
+        t.push(precio.total);
+        return precio;
       });
-    }
+      setCarrito(carritoCopy);
+      setTotalcarrito(totalparacarrito);
+      setproductquantity(productquantity + nombre.cant);
+      const sumaCarrito = [...t].reduce((prev, curr) => prev + curr, 0);
+      setTotalcarrito(sumaCarrito);
+    } else {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "conf",
+          cancelButton: "cancel",
+        },
+        buttonsStyling: false,
+      });
 
-    //setCarrito(setCarrito.push(x));
-  };
-  /*  const addCant = (cantidad) => {
-    if (setOk) {
-      setproductquantity(productquantity + cantidad);
+      swalWithBootstrapButtons
+        .fire({
+          title: "Este producto ya fue agregado!",
+          text: "¿Querés modificar la cantidad?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Modificar",
+          cancelButtonText: "Cancelar!",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            carritoCopy.map(function (dato) {
+              if (dato.id === nombre.id) {
+                dato.total = cant * dato.precio;
+                setproductquantity(productquantity - dato.cant + cant);
+                dato.cant = cant;
+              }
+              const t = carritoCopy
+                .map((item) => item.total)
+                .reduce((prev, curr) => prev + curr, 0);
+              setTotalcarrito(t);
+              return dato;
+            });
+            swalWithBootstrapButtons.fire(
+              "MODIFICADO!",
+              "La cantidad se modifico correctamente!",
+              "success"
+            );
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire(
+              "Cancelado",
+              "La cantida no fue modificada",
+              "error"
+            );
+          }
+        });
     }
-  }; */
+  };
+
   const vaciarCarrito = () => {
     setCarrito([]);
     setproductquantity(0);
   };
 
-  const estaEnCarrito = (producto) => {
-    //return true o false
-  };
-
   const contextVal = {
     productquantity,
-    productName,
     carrito,
-    productPrice,
+    totalCarrito,
+    order,
     precioTotal,
+    total,
+    agregarOrden,
     setPrecioTotal,
     addProductCompleto,
     //addCant,
     eliminarProducto,
     vaciarCarrito,
-    estaEnCarrito,
   };
 
   return <Provider value={contextVal}>{children}</Provider>;
